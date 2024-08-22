@@ -1,7 +1,6 @@
 package com.spring.security.contoller;
 
 import com.spring.security.dto.PostDto;
-import com.spring.security.entity.Post;
 import com.spring.security.services.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,9 +34,8 @@ public class PostController {
     }
 
     @GetMapping("{Id}")
-    public ResponseEntity<PostDto> getPostById(@PathVariable Long Id) {
-            PostDto postDto = postService.getPostById(Id);
-            return new ResponseEntity<>(postDto, HttpStatus.OK);
+    public PostDto getPostById(@PathVariable Long Id) {
+            return  postService.getPostById(Id);
     }
 
 }

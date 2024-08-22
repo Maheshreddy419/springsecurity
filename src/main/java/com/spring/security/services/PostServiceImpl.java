@@ -17,7 +17,7 @@ public class PostServiceImpl implements PostService{
 
     private final PostRepository postRepository;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     @Override
     public List<PostDto> getAllPosts() {
@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService{
     public PostDto getPostById(Long id) {
         Post post = postRepository
                 .findById(id)
-                .orElseThrow(()->new ResourceNotFoundException("Post with this id does not exist::"+id));
+                .orElseThrow(()-> new ResourceNotFoundException("Post with this id does not exist::"+id));
         return modelMapper.map(post,PostDto.class);
     }
 }

@@ -1,9 +1,10 @@
 package com.spring.security.advice;
 
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
-
+@Data
 public class APIError {
 
     private HttpStatus code;
